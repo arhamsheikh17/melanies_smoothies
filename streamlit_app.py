@@ -1,4 +1,7 @@
-get_active_session()
+from snowflake.snowpark.context import get_active_session
+
+session = get_active_session()
+
 
 my_dataframe = session.table("SMOOTHIES.PUBLIC.FRUIT_OPTIONS").select(col('FRUIT_NAME'),col('SEARCH_ON'))
 # st.dataframe(data=my_dataframe, use_container_width=True)
