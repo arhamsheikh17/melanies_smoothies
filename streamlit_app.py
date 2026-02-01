@@ -1,6 +1,9 @@
-from snowflake.snowpark.context import get_active_session
+import streamlit as st
+from snowflake.snowpark.functions import col
 
-session = get_active_session()
+cnx = st.connection("snowflake")
+session = cnx.session()
+
 
 
 my_dataframe = session.table("SMOOTHIES.PUBLIC.FRUIT_OPTIONS").select(col('FRUIT_NAME'),col('SEARCH_ON'))
